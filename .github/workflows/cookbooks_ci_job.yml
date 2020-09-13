@@ -15,19 +15,43 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+    - name: Set up Ruby 2.6
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.6.x
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+    - name: Setup ChefDK
+      run: |
+      cd /tmp
+      wget https://packages.chef.io/files/stable/chefdk/4.11.0/ubuntu/18.04/chefdk_4.11.0-1_amd64.deb
+      sudo apt install ./chefdk_4.11.0-1_amd64.deb
+
+    - name: Run Code Analysis using cookstyle
+      run: |
+        echo `pwd`
+        echo "\n"
+        chmod +x sca.sh
+        ./sca.sh
+
+    - name: Build and Bundle Cookbooks and dependencies
+      run: |
+        echo `pwd`
+        echo "\n"
+        chmod +x berks-vendor.sh
+        echo `ls -l`
+        ./berks-vendor.sh # Berks vendor cookbooks
+
+    - name: Run Chef InSpec Test
+      run: |
+        echo "Run Test Cases"
+
+    - name: Upload Artifacts
+      run: |
+        echo "Upload Artifacts to Github"
