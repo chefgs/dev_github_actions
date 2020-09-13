@@ -1,0 +1,38 @@
+---
+driver:
+  name: vagrant
+  box: ubuntu/bionic64
+
+## The forwarded_port port feature lets you connect to ports on the VM guest via
+## localhost on the host.
+## see also: https://www.vagrantup.com/docs/networking/forwarded_ports.html
+
+#  network:
+#    - ["forwarded_port", {guest: 80, host: 8080}]
+
+provisioner:
+  name: chef_zero
+  chef_license: accept
+  require_chef_omnibus: true
+  product_name: chef
+  product_version: 14.12.3
+
+  ## product_name and product_version specifies a specific Chef product and version to install.
+  ## see the Chef documentation for more details: https://docs.chef.io/config_yml_kitchen.html
+  #  product_name: chef
+  #  product_version: 15
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: ubuntu-18.04
+#  - name: centos-7
+#   - name: trusty64
+
+suites:
+  - name: default
+    verifier:
+      inspec_tests:
+        - test/integration/default
+    attributes:
