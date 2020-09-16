@@ -56,14 +56,14 @@ jobs:
       - name: Run Chef Test
         run: |
           echo "Run Cookbook Cases"
-          chef env --chef-license accept
-          chef-client -z -o user_group
+          sudo chef env --chef-license accept
+          sudo chef-client -z -o user_group
 #          chef exec kitchen verify 
 
       - name: Zip Artifacts
         run: |
           echo "Zip Artifacts"
-          tar -cvzf cookbooks.tar.gz cookbooks
+          sudo tar -cvzf cookbooks.tar.gz cookbooks
       - name: Upload Artifacts
         run: |
           echo "Upload Artifacts to Github"
