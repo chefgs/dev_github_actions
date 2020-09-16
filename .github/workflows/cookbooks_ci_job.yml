@@ -26,19 +26,21 @@ jobs:
         with:
           ruby-version: 2.6.x
 
-      - name: Setup Gem Files
-        run: |
-          bundle install --jobs 4 --retry 3
+#      - name: Setup Gem Files
+#        run: |
+#          bundle install --jobs 4 --retry 3
 
       - name: Setup ChefDK
         run: |
           cd /tmp
           wget https://packages.chef.io/files/stable/chefdk/4.11.0/ubuntu/18.04/chefdk_4.11.0-1_amd64.deb
           sudo apt install ./chefdk_4.11.0-1_amd64.deb
-#      - name: Setup Vagrant and VirtualBox
-#        run: |
-#          sudo apt-get install virtualbox -y
-#          sudo apt-get install vagrant -y
+      - name: Setup Vagrant and VirtualBox
+        run: |
+          wget https://releases.hashicorp.com/vagrant/2.2.10/vagrant_2.2.10_linux_amd64.zip
+          apt-install unzip
+          unzip vagrant_2.2.10_linux_amd64.zip
+          mv vagrant /usr/bin/
 
       - name: Run Code Analysis using cookstyle
         run: |
