@@ -26,9 +26,9 @@ jobs:
         with:
           ruby-version: 2.6.x
 
-      - name: Setup Gem Files
-        run: |
-          bundle install --jobs 4 --retry 3
+#      - name: Setup Gem Files
+#        run: |
+#          bundle install --jobs 4 --retry 3
 
       - name: Setup ChefDK
         run: |
