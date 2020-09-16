@@ -17,4 +17,4 @@ Cookbook performs below tasks,
 - Creates an user group called `chefusers`
 - Creates an user called 'bob'
 - Creates a directory `cheftest` in '/tmp'
-- Creates a file `chef.txt` inside `cheftest`
+- Creates a file `chef.txt` inside `cheftest` and assigns user 'bob' and group 'chefusers' to the file
