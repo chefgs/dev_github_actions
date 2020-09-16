@@ -57,12 +57,13 @@ jobs:
           echo `ls -l`
           ./berks-vendor.sh # Berks vendor cookbooks
 
-      - name: Run Chef InSpec Test
-        run: |
-          echo "Run Test Cases"
-          cd user_group
-          chef exec --chef-license 'accept-silent' kitchen verify 
+#      - name: Run Chef InSpec Test
+#        run: |
+#          echo "Run Test Cases"
+#          cd user_group
+#          chef exec --chef-license 'accept-silent' kitchen verify 
 
-      - name: Upload Artifacts
+      - name: Zip Artifacts
         run: |
           echo "Upload Artifacts to Github"
+          tar -xvzf cookbooks.tar.gz cookbooks
