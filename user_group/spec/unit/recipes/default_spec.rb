@@ -17,9 +17,9 @@ describe 'file::create' do
   let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '16.04').converge(described_recipe) }
   
   it 'Creates a file with an explicit action' do
-    expect(chef_run).to create_file('/tmp/explicit_action').with(
+    expect(chef_run).to create_file('/tmp/cheftest/chef.txt').with(
       user: 'bob',
-      group: 'chefusers',
+      group: 'chefusers'
     )
   end
 end
