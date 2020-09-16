@@ -17,5 +17,5 @@ file_name = "node['user_group']['file_path']/chef.txt"
 file file_name do
   content 'File is created by Chef file resource'
   mode '0755'
-  only_if { ::File.directory?(node['user_group']['file_path']) }
+  only_if { ::File.directory?("${node['user_group']['file_path']}") }
 end
