@@ -53,12 +53,12 @@ jobs:
           echo `ls -l`
           ./berks-vendor.sh # Berks vendor cookbooks
 
-      - name: Run Chef InSpec Test
+      - name: Run Chef Test
         run: |
-          echo "Run Test Cases"
-          cd user_group
-          chef env --chef-license accept
-          chef exec kitchen verify 
+          echo "Run Cookbook Cases"
+          chef-client -z -o user_group
+#          chef env --chef-license accept
+#          chef exec kitchen verify 
 
       - name: Zip Artifacts
         run: |
