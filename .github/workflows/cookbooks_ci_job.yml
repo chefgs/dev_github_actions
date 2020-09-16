@@ -61,6 +61,7 @@ jobs:
         run: |
           echo "Run Test Cases"
           cd user_group
+          chef env --chef-license accept
           chef exec kitchen verify 
 
       - name: Zip Artifacts
