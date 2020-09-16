@@ -59,6 +59,8 @@ jobs:
         run: |
           echo "Run Test Cases"
           cd user_group
+          vagrant box add 'ubuntu/bionic64'
+          vagrant init
           chef exec kitchen verify --chef-license 'accept-silent' 
 
       - name: Upload Artifacts
