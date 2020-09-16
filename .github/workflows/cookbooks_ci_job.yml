@@ -56,8 +56,8 @@ jobs:
       - name: Run Chef Test
         run: |
           echo "Run Cookbook Cases"
+          chef env --chef-license accept
           chef-client -z -o user_group
-#          chef env --chef-license accept
 #          chef exec kitchen verify 
 
       - name: Zip Artifacts
