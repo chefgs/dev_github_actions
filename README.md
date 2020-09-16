@@ -12,6 +12,8 @@ The below mentioned Continuous Integration aspects are covered in the Workflow,
 - Creates tar.gz archive of Cookbook packages
 - In case of any workflow failures, it sends out email to respective developers and maintainers of the repository
 
+Here is the link to [Github Action Workflow file](https://github.com/chefgs/dev_github_actions/blob/master/.github/workflows/cookbooks_ci_job.yml)
+
 ### Cookbook Details
 Cookbook performs below tasks,
 - Creates an user group called `chefusers`
