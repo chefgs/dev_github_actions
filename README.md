@@ -5,6 +5,6 @@ The below mentioned Continuous Integration aspects are covered in the Workflow,
 - It checksout the code into Workspace
 - Performs Cookbook Code Analysis using Cookstyle
 - Executes the cookbook in Local mode and runs the RSpec unit test cases
-- Packages the cookbooks using Berkshelf and creates tar.gz archive
+- Packages the cookbooks using Berkshelf 
 - Creates tar.gz archive of Cookbook packages
 - In case of any workflow failures, it sends out email to respective developers and maintainers of the repository
