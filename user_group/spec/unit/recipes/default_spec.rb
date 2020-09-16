@@ -3,27 +3,23 @@
 # Spec:: default
 #
 # Copyright:: 2020, The Authors, All Rights Reserved.
+require 'chefspec'
 
-require 'spec_helper'
+describe 'directory::create' do
+  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '16.04').converge(described_recipe) }
 
-describe 'user_group::default' do
-  context 'When all attributes are default, on Ubuntu 18.04' do
-    # for a complete list of available platforms and versions see:
-    # https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md
-    platform 'ubuntu', '18.04'
-
-    it 'converges successfully' do
-      expect { chef_run }.to_not raise_error
-    end
+  it 'Creates a directory with the default action' do
+    expect(chef_run).to create_directory('/tmp/cheftest')
   end
+end
 
-  context 'When all attributes are default, on CentOS 7' do
-    # for a complete list of available platforms and versions see:
-    # https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md
-    platform 'centos', '7'
-
-    it 'converges successfully' do
-      expect { chef_run }.to_not raise_error
-    end
+describe 'file::create' do
+  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '16.04').converge(described_recipe) }
+  
+  it 'Creates a file with an explicit action' do
+    expect(chef_run).to create_file('/tmp/explicit_action').with(
+      user: 'bob',
+      group: 'chefusers',
+    )
   end
 end

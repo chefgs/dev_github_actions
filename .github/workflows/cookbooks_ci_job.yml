@@ -15,7 +15,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-16.04
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -29,7 +29,7 @@ jobs:
       - name: Setup ChefDK
         run: |
           cd /tmp
-          wget https://packages.chef.io/files/stable/chefdk/4.11.0/ubuntu/18.04/chefdk_4.11.0-1_amd64.deb
+          wget https://packages.chef.io/files/stable/chefdk/4.11.0/ubuntu/16.04/chefdk_4.11.0-1_amd64.deb
           sudo apt install ./chefdk_4.11.0-1_amd64.deb
 #      - name: Setup Vagrant
 #        run: |
@@ -55,9 +55,11 @@ jobs:
 
       - name: Run Chef Test
         run: |
-          echo "Run Cookbook Cases"
+          echo "Run Cookbook in Localmode"
           sudo chef env --chef-license accept
           sudo chef-client -z -o user_group
+          echo "Run Rspec Unit tests"
+          cd user_group
           sudo chef exec rspec spec
 
       - name: Zip Artifacts
