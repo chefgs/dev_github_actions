@@ -38,7 +38,7 @@ jobs:
       - name: Setup Vagrant and VirtualBox
         run: |
           sudo apt-get install virtualbox -y
-          sudo apt-get install vagrant -y
+#          sudo apt-get install vagrant -y
 
       - name: Run Code Analysis using cookstyle
         run: |
