@@ -4,8 +4,6 @@
 #
 # Copyright:: 2020, The Authors, All Rights Reserved.
 
-default['user_group']['file_path'] = '/tmp/cheftemp'
-
 group 'chefusers'
 
 user 'bob' do
