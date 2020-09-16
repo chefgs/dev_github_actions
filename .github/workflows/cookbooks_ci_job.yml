@@ -31,6 +31,10 @@ jobs:
           cd /tmp
           wget https://packages.chef.io/files/stable/chefdk/4.11.0/ubuntu/18.04/chefdk_4.11.0-1_amd64.deb
           sudo apt install ./chefdk_4.11.0-1_amd64.deb
+      - name: Setup Vagrant and VirtualBox
+        run: |
+          sudo apt-get install virtualbox -y
+          sudo apt-get install vagrant -y
 
       - name: Run Code Analysis using cookstyle
         run: |
@@ -50,6 +54,7 @@ jobs:
       - name: Run Chef InSpec Test
         run: |
           echo "Run Test Cases"
+          chef exec kitchen verify
 
       - name: Upload Artifacts
         run: |
