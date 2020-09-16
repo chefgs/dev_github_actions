@@ -11,3 +11,10 @@ The below mentioned Continuous Integration aspects are covered in the Workflow,
 - Packages the cookbooks using `Berkshelf` which uses `berksfile` 
 - Creates tar.gz archive of Cookbook packages
 - In case of any workflow failures, it sends out email to respective developers and maintainers of the repository
+
+### Cookbook Details
+Cookbook performs below tasks,
+- Creates an user group called `chefusers`
+- Creates an user called 'bob'
+- Creates a directory `cheftest` in '/tmp'
+- Creates a file `chef.txt` inside `cheftest`
