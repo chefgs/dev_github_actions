@@ -65,5 +65,8 @@ jobs:
 
       - name: Zip Artifacts
         run: |
+          echo "Zip Artifacts"
+          tar -cvzf cookbooks.tar.gz cookbooks
+      - name: Upload Artifacts
+        run: |
           echo "Upload Artifacts to Github"
-          tar -xvzf cookbooks.tar.gz cookbooks
