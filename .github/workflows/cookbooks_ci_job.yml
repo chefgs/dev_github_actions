@@ -61,7 +61,7 @@ jobs:
         run: |
           echo "Run Test Cases"
           cd user_group
-          chef exec kitchen verify --chef-license 'accept-silent' 
+          chef exec --chef-license 'accept-silent' kitchen verify 
 
       - name: Upload Artifacts
         run: |
