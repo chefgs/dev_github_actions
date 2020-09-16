@@ -31,12 +31,12 @@ jobs:
           cd /tmp
           wget https://packages.chef.io/files/stable/chefdk/4.11.0/ubuntu/18.04/chefdk_4.11.0-1_amd64.deb
           sudo apt install ./chefdk_4.11.0-1_amd64.deb
-      - name: Setup Vagrant
-        run: |
-          sudo wget https://releases.hashicorp.com/vagrant/2.2.10/vagrant_2.2.10_linux_amd64.zip
-          sudo apt-get install unzip
-          sudo unzip vagrant_2.2.10_linux_amd64.zip
-          sudo mv vagrant /usr/bin/
+#      - name: Setup Vagrant
+#        run: |
+#          sudo wget https://releases.hashicorp.com/vagrant/2.2.10/vagrant_2.2.10_linux_amd64.zip
+#          sudo apt-get install unzip
+#          sudo unzip vagrant_2.2.10_linux_amd64.zip
+#          sudo mv vagrant /usr/bin/
 
       - name: Run Code Analysis using cookstyle
         run: |
@@ -58,7 +58,6 @@ jobs:
           echo "Run Cookbook Cases"
           sudo chef env --chef-license accept
           sudo chef-client -z -o user_group
-#          chef exec kitchen verify 
 
       - name: Zip Artifacts
         run: |
