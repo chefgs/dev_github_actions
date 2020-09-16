@@ -54,7 +54,7 @@ jobs:
       - name: Run Chef InSpec Test
         run: |
           echo "Run Test Cases"
-          chef exec kitchen verify
+          chef exec kitchen verify --chef-license 'accept-silent' 
 
       - name: Upload Artifacts
         run: |
