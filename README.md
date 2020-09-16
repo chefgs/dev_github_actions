@@ -1,6 +1,7 @@
 # Chef Cookbook DIY Github Action
 ### Workflow Details
-Chef is widely used Infra as code technology in DevOps World. This specific GitHub Action Workflow has been used for creating DIY deployment for Chef cookbooks. 
+Chef is widely used Infra as code technology in DevOps World. 
+This specific GitHub Action Workflow has been used for creating DIY deployment for Chef cookbooks. 
 The below mentioned Continuous Integration aspects are covered in the Workflow,
 - It checks-out the code into Workspace
 - Performs Cookbook Code Analysis using `cookstyle`
