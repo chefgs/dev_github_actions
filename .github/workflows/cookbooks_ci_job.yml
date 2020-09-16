@@ -58,6 +58,7 @@ jobs:
           echo "Run Cookbook Cases"
           sudo chef env --chef-license accept
           sudo chef-client -z -o user_group
+          sudo chef exec rspec spec
 
       - name: Zip Artifacts
         run: |
