@@ -59,8 +59,7 @@ jobs:
           sudo chef env --chef-license accept
           sudo chef-client -z -o user_group
           echo "Run Rspec Unit tests"
-          cd user_group
-          sudo chef exec rspec spec
+          sudo chef exec rspec user_group/spec
 
       - name: Zip Artifacts
         run: |
