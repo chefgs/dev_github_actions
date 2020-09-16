@@ -60,6 +60,7 @@ jobs:
         run: |
           echo "Zip Artifacts"
           sudo tar -cvzf cookbooks.tar.gz cookbooks
-      - name: Upload Artifacts
-        run: |
-          echo "Upload Artifacts to Github"
+
+#      - name: Upload Artifacts
+#        run: |
+#          echo "Upload Artifacts to Github"
