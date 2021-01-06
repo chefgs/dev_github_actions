@@ -1,6 +1,6 @@
 # Chef Cookbook DIY Github Action
 ### Workflow Details
-[Chef](https://www.chef.io/) is widely used and most popular Infra as code technology in DevOps World.
+[Chef](https://www.chef.io/) is widely used and most popular Infra as code technology in DevOps World..
 
 This specific GitHub Action Workflow has been used for creating DIY deployment for Chef cookbooks. 
 The below mentioned Continuous Integration aspects are covered in the Workflow,
